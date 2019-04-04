@@ -11,6 +11,7 @@
 # SDOSPluggableApplicationDelegate
 
 - Link confluence: https://kc.sdos.es/x/HATLAQ
+- Changelog: https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate/blob/master/CHANGELOG.md
 
 ## Introduction
 `AppDelegate` is a traditional example of bad code. Lots of line of code that makes so much different things are put together in methods that are called within the application life cycle. But all of those concerns are over.
