@@ -1,0 +1,6 @@
+framework module SDOSPluggableApplicationDelegate {
+  umbrella header "SDOSPluggableApplicationDelegate-umbrella.h"
+
+  export *
+  module * { export * }
+}
