@@ -1,8 +1,30 @@
-# PluggableApplicationDelegate
+- [SDOSPluggableApplicationDelegate](#sdospluggableapplicationdelegate)
+  - [Introduction](#introduction)
+  - [Instalación](#instalaci%C3%B3n)
+    - [Cocoapods](#cocoapods)
+  - [At a glance](#at-a-glance)
+  - [How does this work?](#how-does-this-work)
+  - [Example](#example)
+  - [Requirements](#requirements)
+  - [References](#references)
+
+# SDOSPluggableApplicationDelegate
+
+- Link confluence: https://kc.sdos.es/x/HATLAQ
 
 ## Introduction
 `AppDelegate` is a traditional example of bad code. Lots of line of code that makes so much different things are put together in methods that are called within the application life cycle. But all of those concerns are over.
 Using `SDOSPluggableApplicationDelegate` you decouple AppDelegate from the services that you plug to it. Each `ApplicationService` has its own life cycle that is shared with `AppDelegate`. 
+
+## Instalación
+
+### Cocoapods
+
+Use [CocoaPods](https://cocoapods.org). Add the dependency to `Podfile`:
+
+```ruby
+pod 'SDOSPluggableApplicationDelegate', '~>1.0.0' 
+```
 
 ## At a glance
 Let see some code.
@@ -61,13 +83,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-PluggableApplicationDelegate requires Swift 3.0 or above.
+PluggableApplicationDelegate requires Swift 5.0 or above.
 
-## Installation
-
-PluggableApplicationDelegate is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'SDOSPluggableApplicationDelegate'
-```
+## References
+* https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate
