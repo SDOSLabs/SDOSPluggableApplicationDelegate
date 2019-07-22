@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0567D91CB5E700436460233F /* Pods_SDOSPluggableApplicationDelegateExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C60D129CF473FCACABFD6F /* Pods_SDOSPluggableApplicationDelegateExample.framework */; };
 		1837D1BC1E620CAD007B3A99 /* LoggerApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837D1BB1E620CAD007B3A99 /* LoggerApplicationService.swift */; };
-		505C0576EAACA2FDE26B3A34 /* Pods_SDOSPluggableApplicationDelegateExample_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2DA1E900FED521B350C82F /* Pods_SDOSPluggableApplicationDelegateExample_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -33,7 +31,6 @@
 		291C9F522254D37E00E01BE8 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
 		291C9F542254D37E00E01BE8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		291C9F552254D40A00E01BE8 /* SDOSPluggableApplicationDelegate.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SDOSPluggableApplicationDelegate.podspec; path = ../../SDOSPluggableApplicationDelegate.podspec; sourceTree = "<group>"; };
-		5B2DA1E900FED521B350C82F /* Pods_SDOSPluggableApplicationDelegateExample_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDOSPluggableApplicationDelegateExample_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* SDOSPluggableApplicationDelegateExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDOSPluggableApplicationDelegateExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,11 +41,6 @@
 		607FACE51AFB9204008FA782 /* SDOSPluggableApplicationDelegateExample_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDOSPluggableApplicationDelegateExample_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		72C60D129CF473FCACABFD6F /* Pods_SDOSPluggableApplicationDelegateExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDOSPluggableApplicationDelegateExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		741544EF20BDB6CE07F62BB4 /* Pods-SDOSPluggableApplicationDelegateExample_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDOSPluggableApplicationDelegateExample_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample_Tests/Pods-SDOSPluggableApplicationDelegateExample_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		8E6A38ABBDF1B8AF960E4E6C /* Pods-SDOSPluggableApplicationDelegateExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDOSPluggableApplicationDelegateExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample.release.xcconfig"; sourceTree = "<group>"; };
-		A897F04C6E01741F325FF631 /* Pods-SDOSPluggableApplicationDelegateExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDOSPluggableApplicationDelegateExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample.debug.xcconfig"; sourceTree = "<group>"; };
-		C551E2B44B7ACDBC8CBF5A09 /* Pods-SDOSPluggableApplicationDelegateExample_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDOSPluggableApplicationDelegateExample_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample_Tests/Pods-SDOSPluggableApplicationDelegateExample_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0567D91CB5E700436460233F /* Pods_SDOSPluggableApplicationDelegateExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				505C0576EAACA2FDE26B3A34 /* Pods_SDOSPluggableApplicationDelegateExample_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,15 +69,6 @@
 			name = "Sample Services";
 			sourceTree = "<group>";
 		};
-		489BA6487E953511D16508DA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				72C60D129CF473FCACABFD6F /* Pods_SDOSPluggableApplicationDelegateExample.framework */,
-				5B2DA1E900FED521B350C82F /* Pods_SDOSPluggableApplicationDelegateExample_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +76,6 @@
 				607FACD21AFB9204008FA782 /* Example for PluggableApplicationDelegate */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				AEDACA50FD0F1FF07F4A991B /* Pods */,
-				489BA6487E953511D16508DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,17 +138,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		AEDACA50FD0F1FF07F4A991B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A897F04C6E01741F325FF631 /* Pods-SDOSPluggableApplicationDelegateExample.debug.xcconfig */,
-				8E6A38ABBDF1B8AF960E4E6C /* Pods-SDOSPluggableApplicationDelegateExample.release.xcconfig */,
-				C551E2B44B7ACDBC8CBF5A09 /* Pods-SDOSPluggableApplicationDelegateExample_Tests.debug.xcconfig */,
-				741544EF20BDB6CE07F62BB4 /* Pods-SDOSPluggableApplicationDelegateExample_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,11 +145,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SDOSPluggableApplicationDelegateExample" */;
 			buildPhases = (
-				A6B96A389F7528540C9EB58D /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				11CDBB7662B9715B82464DF0 /* [CP] Embed Pods Frameworks */,
 				298C9FB02255E62600A90652 /* Xcode Versions */,
 			);
 			buildRules = (
@@ -197,7 +163,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SDOSPluggableApplicationDelegateExample_Tests" */;
 			buildPhases = (
-				1D02F2D029D3B3DF6D3CA535 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -276,50 +241,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11CDBB7662B9715B82464DF0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDOSPluggableApplicationDelegate.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1D02F2D029D3B3DF6D3CA535 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SDOSPluggableApplicationDelegateExample_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		298C9FB02255E62600A90652 /* Xcode Versions */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,28 +258,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "file=\"$SRCROOT/XcodeVersion.properties\"\n\n# create file if it does not exist\ntouch \"${file}\"\n\n# if file does not exist or it is not readable -> error\nif [ ! -r \"${file}\" ]\nthen\necho \"error: Could not create file: ${file} (see the Xcode Version script in Build Phases)\"\nerror -1\nfi\n# read the keys and values in the file\nwhile IFS='=' read -r key value\ndo\neval \"${key}='${value}'\"\ndone < \"${file}\"\n\n# if not defined the keys: XCODE_VERSION_MAJOR_REQUIRED, XCODE_VERSION_MINOR_REQUIRED, XCODE_VERSION_ACTUAL_REQUIRED\nif ([ -z ${XCODE_VERSION_MAJOR_REQUIRED:+\"1\"} ] || [ -z ${XCODE_VERSION_MINOR_REQUIRED:+\"1\"} ] || [ -z ${XCODE_VERSION_ACTUAL_REQUIRED:+\"1\"} ])\nthen\necho \"XCODE_VERSION_MAJOR_REQUIRED=${XCODE_VERSION_MAJOR}\" > \"${file}\"\necho \"XCODE_VERSION_MINOR_REQUIRED=${XCODE_VERSION_MINOR}\" >> \"${file}\"\necho \"XCODE_VERSION_ACTUAL_REQUIRED=${XCODE_VERSION_ACTUAL}\" >> \"${file}\"\n\necho \"warning: Required Xcode version set to ${XCODE_VERSION_ACTUAL} in this project. If you want to build this project with a different version of Xcode, please remove XcodeVersion.properties file\"\nelif ([ ${XCODE_VERSION_MAJOR_REQUIRED} != ${XCODE_VERSION_MAJOR} ] || [ ${XCODE_VERSION_MINOR_REQUIRED} != ${XCODE_VERSION_MINOR} ])\nthen\necho \"error: [SDOS error] - The required version of Xcode to run this project is ${XCODE_VERSION_MINOR_REQUIRED} and the current version of Xcode is ${XCODE_VERSION_MINOR}. If you want to build this project with a different version of Xcode, please remove XcodeVersion.properties file\"\nerror 0\nelif ([ ${XCODE_VERSION_ACTUAL_REQUIRED} != ${XCODE_VERSION_ACTUAL} ])\nthen\necho \"warning: [SDOS warning] - XCODE VERSION CONFLICT: The required version of Xcode to run this project is ${XCODE_VERSION_ACTUAL_REQUIRED} and the current version of Xcode is ${XCODE_VERSION_ACTUAL}. This might cause some problems at runtime.\"\nfi\n";
-		};
-		A6B96A389F7528540C9EB58D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SDOSPluggableApplicationDelegateExample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -502,7 +401,6 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A897F04C6E01741F325FF631 /* Pods-SDOSPluggableApplicationDelegateExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -518,7 +416,6 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E6A38ABBDF1B8AF960E4E6C /* Pods-SDOSPluggableApplicationDelegateExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -534,7 +431,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C551E2B44B7ACDBC8CBF5A09 /* Pods-SDOSPluggableApplicationDelegateExample_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -553,7 +449,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 741544EF20BDB6CE07F62BB4 /* Pods-SDOSPluggableApplicationDelegateExample_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
