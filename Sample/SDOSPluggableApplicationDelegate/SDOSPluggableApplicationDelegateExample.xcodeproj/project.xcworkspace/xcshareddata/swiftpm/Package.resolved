@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SDOSPluggableApplicationDelegate",
+        "repositoryURL": "git@svrgitpub.sdos.es:iOS/SDOSPluggableApplicationDelegate.git",
+        "state": {
+          "branch": "feature/spm",
+          "revision": "c9bcc1bb05bb1d1163fb2a8185735a53b344f893",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

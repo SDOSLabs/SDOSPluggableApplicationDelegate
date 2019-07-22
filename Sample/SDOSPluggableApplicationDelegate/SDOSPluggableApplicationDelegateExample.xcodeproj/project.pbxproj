@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1837D1BC1E620CAD007B3A99 /* LoggerApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837D1BB1E620CAD007B3A99 /* LoggerApplicationService.swift */; };
+		298EE44922E58E4600D0A590 /* SDOSPluggableApplicationDelegate in Frameworks */ = {isa = PBXBuildFile; productRef = 298EE44822E58E4600D0A590 /* SDOSPluggableApplicationDelegate */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				298EE44922E58E4600D0A590 /* SDOSPluggableApplicationDelegate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +157,9 @@
 			dependencies = (
 			);
 			name = SDOSPluggableApplicationDelegateExample;
+			packageProductDependencies = (
+				298EE44822E58E4600D0A590 /* SDOSPluggableApplicationDelegate */,
+			);
 			productName = PluggableApplicationDelegate;
 			productReference = 607FACD01AFB9204008FA782 /* SDOSPluggableApplicationDelegateExample.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +215,9 @@
 				Base,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			packageReferences = (
+				298EE44722E58E4600D0A590 /* XCRemoteSwiftPackageReference "SDOSPluggableApplicationDelegate" */,
+			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -393,7 +401,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -406,7 +415,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,7 +433,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,7 +456,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -455,7 +474,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -492,6 +515,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		298EE44722E58E4600D0A590 /* XCRemoteSwiftPackageReference "SDOSPluggableApplicationDelegate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@svrgitpub.sdos.es:iOS/SDOSPluggableApplicationDelegate.git";
+			requirement = {
+				branch = feature/spm;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		298EE44822E58E4600D0A590 /* SDOSPluggableApplicationDelegate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 298EE44722E58E4600D0A590 /* XCRemoteSwiftPackageReference "SDOSPluggableApplicationDelegate" */;
+			productName = SDOSPluggableApplicationDelegate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
 }
