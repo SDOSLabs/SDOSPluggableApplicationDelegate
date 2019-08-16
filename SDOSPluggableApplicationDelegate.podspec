@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
   spec.name         = 'SDOSPluggableApplicationDelegate'
   spec.authors      = 'SDOS'
   spec.version      = @version
-  spec.license      = { :type => 'SDOS License' }
+  spec.license      = { :type => 'MIT' }
   spec.homepage     = 'https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate'
   spec.summary      = 'Librería para el manejo de variables de entorno'
   spec.description  = <<-DESC
