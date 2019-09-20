@@ -5,14 +5,14 @@ Pod::Spec.new do |spec|
   spec.authors      = 'SDOS'
   spec.version      = @version
   spec.license      = { :type => 'MIT' }
-  spec.homepage     = 'https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate'
+  spec.homepage     = 'https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate'
   spec.summary      = 'Librería para el manejo de variables de entorno'
   spec.description  = <<-DESC
 PluggableApplicationDelegate is a way of decoupling AppDelegate, by splitting it into small modules called ApplicationService.
 Each ApplicationServices shares the life cycle with AppDelegate, and becomes its observer. Whenever AppDelegate runs any life cycle method, your Application services are notified and perform some action.
 PluggableApplicationDelegate is an open class from which your AppDelegate needs to inherit. Your AppDelegate then needs to override its `services` property, returning an ApplicationServices array.
                        DESC
-  spec.source       = { :git => "https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate.git", :tag => "v#{spec.version}" }
+  spec.source       = { :git => "https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate.git", :tag => "v#{spec.version}" }
   spec.framework    = ['UIKit']
   spec.requires_arc = true
   spec.swift_version = '5.0'

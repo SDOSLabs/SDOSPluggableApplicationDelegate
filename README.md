@@ -1,6 +1,6 @@
 - [SDOSPluggableApplicationDelegate](#sdospluggableapplicationdelegate)
   - [Introduction](#introduction)
-  - [Instalación](#instalaci%C3%B3n)
+  - [Instalación](#instalaci%c3%b3n)
     - [Cocoapods](#cocoapods)
   - [At a glance](#at-a-glance)
   - [How does this work?](#how-does-this-work)
@@ -11,7 +11,7 @@
 # SDOSPluggableApplicationDelegate
 
 - Link confluence: https://kc.sdos.es/x/HATLAQ
-- Changelog: https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate/blob/master/CHANGELOG.md
+- Changelog: https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate/blob/master/CHANGELOG.md
 
 ## Introduction
 `AppDelegate` is a traditional example of bad code. Lots of line of code that makes so much different things are put together in methods that are called within the application life cycle. But all of those concerns are over.
@@ -87,4 +87,4 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 PluggableApplicationDelegate requires Swift 5.0 or above.
 
 ## References
-* https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate
+* https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate

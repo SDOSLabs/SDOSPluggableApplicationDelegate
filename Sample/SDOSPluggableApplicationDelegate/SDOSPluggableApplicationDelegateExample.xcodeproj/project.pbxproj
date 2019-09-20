@@ -281,21 +281,17 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDOSPluggableApplicationDelegate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SDOSPluggableApplicationDelegateExample/Pods-SDOSPluggableApplicationDelegateExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1D02F2D029D3B3DF6D3CA535 /* [CP] Check Pods Manifest.lock */ = {

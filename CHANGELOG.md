@@ -1,3 +1,3 @@
-## [1.0.0 Primera versión de la librería](https://svrgitpub.sdos.es/iOS/SDOSPluggableApplicationDelegate/tree/v1.0.0)
+## [1.0.0 Primera versión de la librería](https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate/tree/v1.0.0)
 
 - Primera versión de la librería
