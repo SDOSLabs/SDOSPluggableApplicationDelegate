@@ -21,7 +21,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
     public var window: UIWindow?
     
     open var applicationServices: [ApplicationService] { return [] }
-    private lazy var __applicationServices: [ApplicationService] = {
+    internal lazy var __applicationServices: [ApplicationService] = {
         return self.applicationServices
     }()
     
@@ -537,32 +537,3 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         }
     }
 }
-
-#if swift(>=5.1)
-
-@available(iOS 13.0, *)
-extension PluggableApplicationDelegate {
-    
-    //MARK: - SceneKit
-    
-    @available(iOS 13.0, *)
-    open func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        
-        for service in __applicationServices {
-            if let result = service.application?(application, configurationForConnecting: connectingSceneSession, options: options) {
-                print("[SDOSPluggableApplicationDelegate] - Return first responder of \(#function)")
-                return result
-            }
-        }
-        
-        print("[SDOSPluggableApplicationDelegate] - Any service implement \(#function). Return a default configuration")
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    @available(iOS 13.0, *)
-    open func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        __applicationServices.forEach { $0.application?(application, didDiscardSceneSessions: sceneSessions) }
-    }
-}
-
-#endif

@@ -9,6 +9,11 @@ target 'SDOSPluggableApplicationDelegateExample' do
 end
 
 target 'SDOSPluggableApplicationDelegateMultipleExample' do
-  pod 'SDOSPluggableApplicationDelegate', :path => '../../'
+  pod 'SDOSPluggableApplicationDelegate/Scene', :path => '../../'
+
+end
+
+target 'SDOSPluggableApplicationDelegateSceneExample' do
+  pod 'SDOSPluggableApplicationDelegate/Scene', :path => '../../'
 
 end

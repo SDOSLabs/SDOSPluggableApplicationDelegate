@@ -1,5 +1,4 @@
 - [SDOSPluggableApplicationDelegate](#sdospluggableapplicationdelegate)
-  - [Important](#important)
   - [Introduction](#introduction)
   - [Instalation](#instalation)
     - [Cocoapods](#cocoapods)
@@ -14,10 +13,6 @@
 
 - Link confluence: https://kc.sdos.es/x/HATLAQ
 - Changelog: https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate/blob/master/CHANGELOG.md
-
-## Important
-
-This version of library need that your app implement the Scenes: https://developer.apple.com/documentation/uikit/app_and_environment/scenes/specifying_the_scenes_your_app_supports 
 
 ## Introduction
 `AppDelegate` and the new `SceneDelegate` are a traditional example of bad code. Lots of line of code that makes so much different things are put together in methods that are called within the application life cycle. But all of those concerns are over.
@@ -38,6 +33,12 @@ Add the dependency to `Podfile`:
 ```ruby
 pod 'SDOSPluggableApplicationDelegate', '~>2.0.0' 
 ```
+
+If you want support the new `SceneDelegate` add the next dependency instead: 
+```ruby
+pod 'SDOSPluggableApplicationDelegate/Scene', '~>2.0.0' 
+```
+Remember that you need support the Scenes into your app: https://developer.apple.com/documentation/uikit/app_and_environment/scenes/specifying_the_scenes_your_app_supports
 
 ## At a glance. AppDelegate
 Let see some code.
@@ -94,6 +95,7 @@ The methods of the classes register into variable `applicationServices` will be 
 ## At a glance. SceneDelegate
 
 First you need support the Scenes into your app: https://developer.apple.com/documentation/uikit/app_and_environment/scenes/specifying_the_scenes_your_app_supports
+Make sure you install the correct version of dependency (`SDOSPluggableApplicationDelegate/Scene`)
 
 Here is how a `SceneService` is like:
 
@@ -143,7 +145,7 @@ class SceneDelegate: PluggableSceneDelegate {
 }
 ```
 
-Also you can unify the `ApplicationService` and `ServiceDelegate` and share the common code:
+Also, you can unify the `ApplicationService` and `ServiceDelegate` and share the common code:
 
 ```js
 import Foundation
@@ -232,7 +234,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-PluggableApplicationDelegate requires Swift 5.1 or above.
+PluggableApplicationDelegate requires Swift 5.0 or above.
 
 ## References
 * https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate
