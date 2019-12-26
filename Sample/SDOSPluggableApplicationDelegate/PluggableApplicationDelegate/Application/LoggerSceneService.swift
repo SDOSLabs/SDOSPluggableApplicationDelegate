@@ -18,7 +18,6 @@ final class LoggerSceneService: NSObject, SceneService {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
         print("[SCENE]: It has started!")
         
         if let contentView = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController {
@@ -30,8 +29,6 @@ final class LoggerSceneService: NSObject, SceneService {
                 window.makeKeyAndVisible()
             }
         }
-
-        
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
