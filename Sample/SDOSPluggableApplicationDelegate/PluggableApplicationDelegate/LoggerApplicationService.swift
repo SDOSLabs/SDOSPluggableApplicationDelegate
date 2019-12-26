@@ -10,6 +10,10 @@ import Foundation
 import SDOSPluggableApplicationDelegate
 
 final class LoggerApplicationService: NSObject, ApplicationService {
+    
+    static let shared = LoggerApplicationService()
+    private override init() { }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         print("It has started!")

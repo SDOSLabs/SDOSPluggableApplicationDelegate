@@ -33,6 +33,8 @@
 		291C9F522254D37E00E01BE8 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
 		291C9F542254D37E00E01BE8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		291C9F552254D40A00E01BE8 /* SDOSPluggableApplicationDelegate.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SDOSPluggableApplicationDelegate.podspec; path = ../../SDOSPluggableApplicationDelegate.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		29AD4BFE23A7D6BD00410C37 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
+		29AD4BFF23A7D6BD00410C37 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		5B2DA1E900FED521B350C82F /* Pods_SDOSPluggableApplicationDelegateExample_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDOSPluggableApplicationDelegateExample_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* SDOSPluggableApplicationDelegateExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDOSPluggableApplicationDelegateExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +93,8 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				29AD4BFE23A7D6BD00410C37 /* CHANGELOG.md */,
+				29AD4BFF23A7D6BD00410C37 /* README.md */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for PluggableApplicationDelegate */,
 				607FACE81AFB9204008FA782 /* Tests */,
