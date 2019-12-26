@@ -23,7 +23,7 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     public var window: UIWindow?
     
     open var sceneServices: [SceneService] { return [] }
-    private lazy var __services: [SceneService] = {
+    private lazy var __sceneServices: [SceneService] = {
         return self.sceneServices
     }()
     
@@ -34,7 +34,7 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
         var results: [T] = []
         var returns: [S] = []
         
-        for service in __services {
+        for service in __sceneServices {
             dispatchGroup.enter()
             let returned = work(service, { result in
                 results.append(result)
@@ -58,12 +58,12 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     
     @available(iOS 13.0, *)
     open func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        __services.forEach { $0.scene?(scene, willConnectTo: session, options: connectionOptions) }
+        __sceneServices.forEach { $0.scene?(scene, willConnectTo: session, options: connectionOptions) }
     }
     
     @available(iOS 13.0, *)
     open func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
-        __services.forEach { $0.windowScene?(windowScene, didUpdate: previousCoordinateSpace, interfaceOrientation: previousInterfaceOrientation, traitCollection: previousTraitCollection) }
+        __sceneServices.forEach { $0.windowScene?(windowScene, didUpdate: previousCoordinateSpace, interfaceOrientation: previousInterfaceOrientation, traitCollection: previousTraitCollection) }
     }
 
     @available(iOS 13.0, *)
@@ -81,43 +81,43 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     
     @available(iOS 13.0, *)
     open func windowScene(_ windowScene: UIWindowScene, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
-        __services.forEach { $0.windowScene?(windowScene, userDidAcceptCloudKitShareWith: cloudKitShareMetadata) }
+        __sceneServices.forEach { $0.windowScene?(windowScene, userDidAcceptCloudKitShareWith: cloudKitShareMetadata) }
     }
     
     @available(iOS 13.0, *)
     open func sceneDidDisconnect(_ scene: UIScene) {
-        __services.forEach { $0.sceneDidDisconnect?(scene) }
+        __sceneServices.forEach { $0.sceneDidDisconnect?(scene) }
     }
     
     @available(iOS 13.0, *)
     open func sceneDidBecomeActive(_ scene: UIScene) {
-        __services.forEach { $0.sceneDidBecomeActive?(scene) }
+        __sceneServices.forEach { $0.sceneDidBecomeActive?(scene) }
     }
 
     @available(iOS 13.0, *)
     open func sceneWillResignActive(_ scene: UIScene) {
-        __services.forEach { $0.sceneWillResignActive?(scene) }
+        __sceneServices.forEach { $0.sceneWillResignActive?(scene) }
     }
 
     @available(iOS 13.0, *)
     open func sceneWillEnterForeground(_ scene: UIScene) {
-        __services.forEach {$0.sceneWillEnterForeground?(scene) }
+        __sceneServices.forEach {$0.sceneWillEnterForeground?(scene) }
     }
 
     @available(iOS 13.0, *)
     open func sceneDidEnterBackground(_ scene: UIScene) {
-        __services.forEach { $0.sceneDidEnterBackground?(scene) }
+        __sceneServices.forEach { $0.sceneDidEnterBackground?(scene) }
     }
     
 
     @available(iOS 13.0, *)
     open func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        __services.forEach { $0.scene?(scene, openURLContexts: URLContexts) }
+        __sceneServices.forEach { $0.scene?(scene, openURLContexts: URLContexts) }
     }
     
     @available(iOS 13.0, *)
     open func stateRestorationActivity(for scene: UIScene) -> NSUserActivity? {
-        for service in __services {
+        for service in __sceneServices {
             if let result = service.stateRestorationActivity?(for: scene) {
                 print("[SDOSPluggableApplicationDelegate] - Return first responder of \(#function)")
                 return result
@@ -128,22 +128,22 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
 
     @available(iOS 13.0, *)
     open func scene(_ scene: UIScene, willContinueUserActivityWithType userActivityType: String) {
-        __services.forEach { $0.scene?(scene, willContinueUserActivityWithType: userActivityType) }
+        __sceneServices.forEach { $0.scene?(scene, willContinueUserActivityWithType: userActivityType) }
     }
 
     @available(iOS 13.0, *)
     open func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        __services.forEach { $0.scene?(scene, continue: userActivity) }
+        __sceneServices.forEach { $0.scene?(scene, continue: userActivity) }
     }
 
     @available(iOS 13.0, *)
     open func scene(_ scene: UIScene, didFailToContinueUserActivityWithType userActivityType: String, error: Error) {
-        __services.forEach { $0.scene?(scene, didFailToContinueUserActivityWithType: userActivityType, error: error) }
+        __sceneServices.forEach { $0.scene?(scene, didFailToContinueUserActivityWithType: userActivityType, error: error) }
     }
 
     @available(iOS 13.0, *)
     open func scene(_ scene: UIScene, didUpdate userActivity: NSUserActivity) {
-        __services.forEach { $0.scene?(scene, didUpdate: userActivity) }
+        __sceneServices.forEach { $0.scene?(scene, didUpdate: userActivity) }
     }
     
 }
