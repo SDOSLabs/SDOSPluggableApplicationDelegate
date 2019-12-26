@@ -6,10 +6,14 @@ use_frameworks!
 
 target 'SDOSPluggableApplicationDelegateExample' do
   pod 'SDOSPluggableApplicationDelegate', :path => '../../'
+end
 
-  target 'SDOSPluggableApplicationDelegateExample_Tests' do
-    inherit! :search_paths
+target 'SDOSPluggableApplicationDelegateMultipleExample' do
+  pod 'SDOSPluggableApplicationDelegate/Scene', :path => '../../'
 
-    
-  end
+end
+
+target 'SDOSPluggableApplicationDelegateSceneExample' do
+  pod 'SDOSPluggableApplicationDelegate/Scene', :path => '../../'
+
 end

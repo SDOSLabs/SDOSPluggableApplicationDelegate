@@ -1,18 +1,21 @@
 PODS:
   - SDOSPluggableApplicationDelegate (1.0.0):
-    - SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate (= 1.0.0)
-  - SDOSPluggableApplicationDelegate/SDOSPluggableApplicationDelegate (1.0.0)
+    - SDOSPluggableApplicationDelegate/Core (= 1.0.0)
+  - SDOSPluggableApplicationDelegate/Core (1.0.0)
+  - SDOSPluggableApplicationDelegate/Scene (1.0.0):
+    - SDOSPluggableApplicationDelegate/Core
 
 DEPENDENCIES:
   - SDOSPluggableApplicationDelegate (from `../../`)
+  - SDOSPluggableApplicationDelegate/Scene (from `../../`)
 
 EXTERNAL SOURCES:
   SDOSPluggableApplicationDelegate:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  SDOSPluggableApplicationDelegate: c10e0e2503c50781301c037f9aabbf952d427a80
+  SDOSPluggableApplicationDelegate: c57df75391ff6ccce651b7e396258ccc66d5d7e0
 
-PODFILE CHECKSUM: 3c43b04d2d842b8e4487012436eb15f2979f78a2
+PODFILE CHECKSUM: 6d2cfee9e74fc16a0c1aca7d457a0e8da9d46a5e
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

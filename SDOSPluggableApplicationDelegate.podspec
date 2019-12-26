@@ -16,10 +16,17 @@ PluggableApplicationDelegate is an open class from which your AppDelegate needs 
   spec.framework    = ['UIKit']
   spec.requires_arc = true
   spec.swift_version = '5.0'
+  spec.default_subspecs = ['Core']
 
-  spec.subspec 'SDOSPluggableApplicationDelegate' do |s1|
-    s1.preserve_paths = 'src/Classes/*'
-    s1.source_files = ['src/Classes/*{*.m,*.h,*.swift}', 'src/Classes/**/*{*.m,*.h,*.swift}']
+  spec.subspec 'Core' do |s1|
+    s1.preserve_paths = 'src/Classes/Core/*'
+    s1.source_files = ['src/Classes/Core/*{*.m,*.h,*.swift}', 'src/Classes/Core/**/*{*.m,*.h,*.swift}']
+  end
+  
+  spec.subspec 'Scene' do |s1|
+    s1.dependency 'SDOSPluggableApplicationDelegate/Core'
+    s1.preserve_paths = 'src/Classes/Scenes/*'
+    s1.source_files = ['src/Classes/Scenes/*{*.m,*.h,*.swift}', 'src/Classes/Scenes/**/*{*.m,*.h,*.swift}']
   end
 
 end
