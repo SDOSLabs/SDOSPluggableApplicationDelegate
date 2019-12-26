@@ -14,18 +14,28 @@ final class LoggerApplicationService: NSObject, ApplicationService {
     static let shared = LoggerApplicationService()
     private override init() { }
     
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        print("It has started!")
+        print("[APPLICATION]: It has started!")
+        
+        if let contentView = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController {
+            contentView.text = "Load from Application"
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            window.rootViewController = contentView
+            self.window = window
+            window.makeKeyAndVisible()
+        }
         
         return true
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("It has entered background")
+        print("[APPLICATION]: It has entered background")
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        print("It has become active")
+        print("[APPLICATION]: It has become active")
     }
 }

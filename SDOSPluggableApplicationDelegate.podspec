@@ -15,7 +15,7 @@ PluggableApplicationDelegate is an open class from which your AppDelegate needs 
   spec.source       = { :git => "https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate.git", :tag => "v#{spec.version}" }
   spec.framework    = ['UIKit']
   spec.requires_arc = true
-  spec.swift_version = '5.0'
+  spec.swift_version = '5.1'
 
   spec.subspec 'SDOSPluggableApplicationDelegate' do |s1|
     s1.preserve_paths = 'src/Classes/*'

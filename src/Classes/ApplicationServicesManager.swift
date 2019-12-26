@@ -417,7 +417,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         return nil
     }
 
-    @available(iOS 6.0, *)
+    @available(iOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldSaveSecureApplicationState: instead")
     open func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
         var result = false
         for service in __applicationServices {
@@ -428,11 +428,33 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         return result
     }
     
-    @available(iOS 6.0, *)
+    @available(iOS 13.2, *)
+    public func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
+        var result = false
+        for service in __applicationServices {
+            if service.application?(application, shouldSaveSecureApplicationState: coder) ?? false {
+                result = true
+            }
+        }
+        return result
+    }
+    
+    @available(iOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldRestoreSecureApplicationState: instead")
     open func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         var result = false
         for service in __applicationServices {
             if service.application?(application, shouldRestoreApplicationState: coder) ?? false {
+                result = true
+            }
+        }
+        return result
+    }
+    
+    @available(iOS 13.2, *)
+    public func application(_ application: UIApplication, shouldRestoreSecureApplicationState coder: NSCoder) -> Bool {
+        var result = false
+        for service in __applicationServices {
+            if service.application?(application, shouldRestoreSecureApplicationState: coder) ?? false {
                 result = true
             }
         }
