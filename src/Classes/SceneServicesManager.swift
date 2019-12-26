@@ -9,9 +9,6 @@
 import UIKit
 import CloudKit
 
-/// This is only a tagging protocol.
-/// It doesn't add more functionalities yet.
-
 #if swift(>=5.1)
 
 @available(iOS 13.0, *)
@@ -32,7 +29,7 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     
     
     @discardableResult
-    private func apply<T, S>(_ work: (SceneService, @escaping (T) -> Void) -> S?, completionHandler: @escaping ([T]) -> Swift.Void) -> [S] {
+    private func applyToScene<T, S>(_ work: (SceneService, @escaping (T) -> Void) -> S?, completionHandler: @escaping ([T]) -> Swift.Void) -> [S] {
         let dispatchGroup = DispatchGroup()
         var results: [T] = []
         var returns: [S] = []
@@ -71,7 +68,7 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
 
     @available(iOS 13.0, *)
     open func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        apply({ (service, completionHandler) -> Void in
+        applyToScene({ (service, completionHandler) -> Void in
             service.windowScene?(windowScene, performActionFor: shortcutItem) { result in
                 completionHandler(result)
             }
