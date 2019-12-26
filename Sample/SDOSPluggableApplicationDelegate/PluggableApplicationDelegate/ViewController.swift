@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    public var text: String?
+    @IBOutlet private weak var lbText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        lbText.text = text
         // Do any additional setup after loading the view, typically from a nib.
     }
 
