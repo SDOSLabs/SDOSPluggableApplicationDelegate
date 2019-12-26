@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0567D91CB5E700436460233F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		0567D91CB5E700436460233F /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		20E28D249356BB6596D67A36 /* Pods_SDOSPluggableApplicationDelegateMultipleExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F41801C00DABE2688A995B /* Pods_SDOSPluggableApplicationDelegateMultipleExample.framework */; };
 		298E088423B49FC200B059E9 /* LoggerApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E087A23B49FC200B059E9 /* LoggerApplicationService.swift */; };
 		298E088523B49FC200B059E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298E087B23B49FC200B059E9 /* AppDelegate.swift */; };
@@ -32,7 +32,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		6D27C875EA9DF2D36BA12136 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		6D27C875EA9DF2D36BA12136 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E18E16008374CB8BF6299FD7 /* Pods_SDOSPluggableApplicationDelegateExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E8455FE52270416A97D332 /* Pods_SDOSPluggableApplicationDelegateExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,8 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0567D91CB5E700436460233F /* BuildFile in Frameworks */,
-				6D27C875EA9DF2D36BA12136 /* BuildFile in Frameworks */,
+				0567D91CB5E700436460233F /* (null) in Frameworks */,
+				6D27C875EA9DF2D36BA12136 /* (null) in Frameworks */,
 				E18E16008374CB8BF6299FD7 /* Pods_SDOSPluggableApplicationDelegateExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,6 +676,7 @@
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Multiple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -692,6 +693,7 @@
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Multiple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -708,6 +710,7 @@
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Scene/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -724,6 +727,7 @@
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Scene/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -829,6 +833,7 @@
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -845,6 +850,7 @@
 				DEVELOPMENT_TEAM = Y5G9RYLF8Y;
 				INFOPLIST_FILE = PluggableApplicationDelegate/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

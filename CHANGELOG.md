@@ -1,4 +1,4 @@
-## [HEAD]
+## [2.0.0 Support Scenes](https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate/tree/v2.0.0)
 
 - Support Scenes for iOS 13. New dependency `SDOSPluggableApplicationDelegate/Scene`
 
