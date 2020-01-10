@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-#if swift(>=5.1)
+#if swift(>=5.1.2)
 extension PluggableApplicationDelegate {
     
     @available(iOS 13.2, *)

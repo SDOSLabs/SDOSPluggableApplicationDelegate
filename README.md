@@ -239,3 +239,4 @@ PluggableApplicationDelegate requires Swift 5.0 or above.
 ## References
 * https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate
 * https://developer.apple.com/documentation/uikit/app_and_environment/scenes/specifying_the_scenes_your_app_supports
+* https://github.com/fmo91/PluggableApplicationDelegate
