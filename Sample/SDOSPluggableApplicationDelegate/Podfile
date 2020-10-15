@@ -1,0 +1,19 @@
+source 'https://github.com/SDOSLabs/cocoapods-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '10.0'
+use_frameworks!
+
+target 'SDOSPluggableApplicationDelegateExample' do
+  pod 'SDOSPluggableApplicationDelegate', :path => '../../'
+end
+
+target 'SDOSPluggableApplicationDelegateMultipleExample' do
+  pod 'SDOSPluggableApplicationDelegate/Scene', :path => '../../'
+
+end
+
+target 'SDOSPluggableApplicationDelegateSceneExample' do
+  pod 'SDOSPluggableApplicationDelegate/Scene', :path => '../../'
+
+end

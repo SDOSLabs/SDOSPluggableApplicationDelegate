@@ -9,27 +9,26 @@
 import UIKit
 import CloudKit
 
-/// This is only a tagging protocol.
-/// It doesn't add more functionalities yet.
-public protocol ApplicationService: UIApplicationDelegate {}
+public typealias ApplicationDelegate = UIApplicationDelegate
+public protocol ApplicationService: ApplicationDelegate {}
 
-open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
+open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
     
     public var window: UIWindow?
     
-    open var services: [ApplicationService] { return [] }
-    private lazy var __services: [ApplicationService] = {
-        return self.services
+    open var applicationServices: [ApplicationService] { return [] }
+    internal lazy var __applicationServices: [ApplicationService] = {
+        return self.applicationServices
     }()
     
     
     @discardableResult
-    private func apply<T, S>(_ work: (ApplicationService, @escaping (T) -> Void) -> S?, completionHandler: @escaping ([T]) -> Swift.Void) -> [S] {
+    private func applyToApplication<T, S>(_ work: (ApplicationService, @escaping (T) -> Void) -> S?, completionHandler: @escaping ([T]) -> Swift.Void) -> [S] {
         let dispatchGroup = DispatchGroup()
         var results: [T] = []
         var returns: [S] = []
         
-        for service in __services {
+        for service in __applicationServices {
             dispatchGroup.enter()
             let returned = work(service, { result in
                 results.append(result)
@@ -54,14 +53,14 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 2.0, *)
     open func applicationDidFinishLaunching(_ application: UIApplication) {
-        __services.forEach { $0.applicationDidFinishLaunching?(application) }
+        __applicationServices.forEach { $0.applicationDidFinishLaunching?(application) }
     }
     
     
     @available(iOS 6.0, *)
     open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, willFinishLaunchingWithOptions: launchOptions) ?? false {
                 result = true
             }
@@ -72,7 +71,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 3.0, *)
     open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, didFinishLaunchingWithOptions: launchOptions) ?? false {
                 result = true
             }
@@ -83,14 +82,14 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 2.0, *)
     open func applicationDidBecomeActive(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationDidBecomeActive?(application)
         }
     }
     
     @available(iOS 2.0, *)
     open func applicationWillResignActive(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationWillResignActive?(application)
         }
     }
@@ -98,7 +97,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Please use application:openURL:options:")
     open func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, handleOpen: url) ?? false {
                 result = true
             }
@@ -109,7 +108,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS, introduced: 4.2, deprecated: 9.0, message: "Please use application:openURL:options:")
     open func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, open: url, sourceApplication: sourceApplication, annotation: annotation) ?? false {
                 result = true
             }
@@ -120,7 +119,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     open func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(app, open: url, options: options) ?? false {
                 result = true
             }
@@ -130,21 +129,21 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 2.0, *)
     open func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationDidReceiveMemoryWarning?(application)
         }
     }
     
     @available(iOS 2.0, *)
     open func applicationWillTerminate(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationWillTerminate?(application)
         }
     }
     
     @available(iOS 2.0, *)
     open func applicationSignificantTimeChange(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationSignificantTimeChange?(application)
         }
     }
@@ -152,26 +151,26 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 2.0, *)
     open func application(_ application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, willChangeStatusBarOrientation: newStatusBarOrientation, duration: duration)
         }
     }
     
     @available(iOS 2.0, *)
     open func application(_ application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didChangeStatusBarOrientation: oldStatusBarOrientation)
         }
     }
     
     open func application(_ application: UIApplication, willChangeStatusBarFrame newStatusBarFrame: CGRect) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, willChangeStatusBarFrame: newStatusBarFrame)
         }
     }
 
     open func application(_ application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didChangeStatusBarFrame: oldStatusBarFrame)
         }
     }
@@ -180,7 +179,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // This callback will be made upon calling -[UIApplication registerUserNotificationSettings:]. The settings the user has granted to the application will be passed in as the second argument.
     @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotification UNNotification Settings instead")
     open func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didRegister: notificationSettings)
         }
     }
@@ -188,7 +187,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 3.0, *)
     open func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
         }
     }
@@ -196,7 +195,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 3.0, *)
     open func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didFailToRegisterForRemoteNotificationsWithError: error)
         }
     }
@@ -204,7 +203,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS, introduced: 3.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:] for user visible notifications and -[UIApplicationDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:] for silent remote notifications")
     open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didReceiveRemoteNotification: userInfo)
         }
     }
@@ -212,7 +211,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS, introduced: 4.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
     open func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didReceive: notification)
         }
     }
@@ -223,7 +222,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // You should call the completion handler as soon as you've finished handling the action.
     @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
     open func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void) {
-        apply({ (service, completion) -> Void? in
+        applyToApplication({ (service, completion) -> Void? in
             service.application?(application, handleActionWithIdentifier: identifier, for: notification) {
                 completion(())
             }
@@ -235,7 +234,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS, introduced: 9.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
     open func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, handleActionWithIdentifier: identifier, forRemoteNotification: userInfo, withResponseInfo: responseInfo) {
                 completionHandler(())
             }
@@ -250,7 +249,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // You should call the completion handler as soon as you've finished handling the action.
     @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
     open func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], completionHandler: @escaping () -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, handleActionWithIdentifier: identifier, forRemoteNotification: userInfo) {
                 completionHandler(())
             }
@@ -262,7 +261,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS, introduced: 9.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
     open func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, handleActionWithIdentifier: identifier, for: notification, withResponseInfo: responseInfo) {
                 completionHandler(())
             }
@@ -277,7 +276,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
      This method will be invoked even if the application was launched or resumed because of the remote notification. The respective delegate methods will be invoked first. Note that this behavior is in contrast to application:didReceiveRemoteNotification:, which is not called in those cases, and which will not be invoked if this method is implemented. !*/
     @available(iOS 7.0, *)
     open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
         }, completionHandler: { results in
             let result = results.min(by: { $0.rawValue < $1.rawValue }) ?? .noData
@@ -289,7 +288,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// Applications with the "fetch" background mode may be given opportunities to fetch updated content in the background or when it is convenient for the system. This method will be called in these situations. You should call the fetchCompletionHandler as soon as you're finished performing that operation, so the system can accurately estimate its power and data cost.
     @available(iOS 7.0, *)
     open func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, performFetchWithCompletionHandler: completionHandler)
         }, completionHandler: { results in
             let result = results.min(by: { $0.rawValue < $1.rawValue }) ?? .noData
@@ -302,7 +301,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // except when -application:willFinishLaunchingWithOptions: or -application:didFinishLaunchingWithOptions returns NO.
     @available(iOS 9.0, *)
     open func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, performActionFor: shortcutItem, completionHandler: completionHandler)
         }, completionHandler: { results in
             // if any service handled the shortcut, return true
@@ -319,7 +318,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // callbacks without any action by the application. You should call the completionHandler as soon as you're finished handling the callbacks.
     @available(iOS 7.0, *)
     open func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Swift.Void) {
-        apply({ (service, completionHandler) -> Void? in
+        applyToApplication({ (service, completionHandler) -> Void? in
             service.application?(application, handleEventsForBackgroundURLSession: identifier) {
                 completionHandler(())
             }
@@ -331,10 +330,10 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 8.2, *)
     open func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Swift.Void) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, handleWatchKitExtensionRequest: userInfo, reply: reply)
         }
-        apply({ (service, reply) -> Void? in
+        applyToApplication({ (service, reply) -> Void? in
             service.application?(application, handleWatchKitExtensionRequest: userInfo, reply: reply)
         }, completionHandler: { results in
             let result = results.reduce([:], { initial, next in
@@ -351,7 +350,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 9.0, *)
     open func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationShouldRequestHealthAuthorization?(application)
         }
     }
@@ -359,14 +358,14 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 4.0, *)
     open func applicationDidEnterBackground(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationDidEnterBackground?(application)
         }
     }
     
     @available(iOS 4.0, *)
     open func applicationWillEnterForeground(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationWillEnterForeground?(application)
         }
     }
@@ -374,14 +373,14 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 4.0, *)
     open func applicationProtectedDataWillBecomeUnavailable(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationProtectedDataWillBecomeUnavailable?(application)
         }
     }
     
     @available(iOS 4.0, *)
     open func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication) {
-        for service in __services {
+        for service in __applicationServices {
             service.applicationProtectedDataDidBecomeAvailable?(application)
         }
     }
@@ -393,7 +392,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 8.0, *)
     open func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, shouldAllowExtensionPointIdentifier: extensionPointIdentifier) ?? true {
                 result = true
             }
@@ -404,8 +403,9 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 6.0, *)
     public func application(_ application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
-        for service in __services {
+        for service in __applicationServices {
             if let viewController = service.application?(application, viewControllerWithRestorationIdentifierPath: identifierComponents, coder: coder) {
+                print("[SDOSPluggableApplicationDelegate] - Return first responder of \(#function)")
                 return viewController
             }
         }
@@ -413,10 +413,10 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
         return nil
     }
 
-    @available(iOS 6.0, *)
+    @available(iOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldSaveSecureApplicationState: instead")
     open func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, shouldSaveApplicationState: coder) ?? false {
                 result = true
             }
@@ -424,10 +424,10 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
         return result
     }
     
-    @available(iOS 6.0, *)
+    @available(iOS, introduced: 6.0, deprecated: 13.2, message: "Use application:shouldRestoreSecureApplicationState: instead")
     open func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, shouldRestoreApplicationState: coder) ?? false {
                 result = true
             }
@@ -437,14 +437,14 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 6.0, *)
     open func application(_ application: UIApplication, willEncodeRestorableStateWith coder: NSCoder) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, willEncodeRestorableStateWith: coder)
         }
     }
     
     @available(iOS 6.0, *)
     open func application(_ application: UIApplication, didDecodeRestorableStateWith coder: NSCoder) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didDecodeRestorableStateWith: coder)
         }
     }
@@ -457,7 +457,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 8.0, *)
     open func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
         var result = false
-        for service in __services {
+        for service in __applicationServices {
             if service.application?(application, willContinueUserActivityWithType: userActivityType) ?? false {
                 result = true
             }
@@ -472,7 +472,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // restoreUserActivityState on all objects.
     @available(iOS 8.0, *)
     public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        let returns = apply({ (service, restorationHandler) -> Bool? in
+        let returns = applyToApplication({ (service, restorationHandler) -> Bool? in
             service.application?(application, continue: userActivity, restorationHandler: restorationHandler)
         }, completionHandler: { results in
             let result = results.reduce([], { $0 + ($1 ?? []) })
@@ -486,7 +486,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // If the user activity cannot be fetched after willContinueUserActivityWithType is called, this will be called on the main thread when implemented.
     @available(iOS 8.0, *)
     open func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didFailToContinueUserActivityWithType: userActivityType, error: error)
         }
     }
@@ -495,7 +495,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // This is called on the main thread when a user activity managed by UIKit has been updated. You can use this as a last chance to add additional data to the userActivity.
     @available(iOS 8.0, *)
     open func application(_ application: UIApplication, didUpdate userActivity: NSUserActivity) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, didUpdate: userActivity)
         }
     }
@@ -506,7 +506,7 @@ open class PluggableApplicationDelegate: UIResponder, UIApplicationDelegate {
     // the resulting CKShare and its associated record(s), which will appear in the CKContainer's shared database in a zone matching that of the record's owner.
     @available(iOS 10.0, *)
     open func application(_ application: UIApplication, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
-        for service in __services {
+        for service in __applicationServices {
             service.application?(application, userDidAcceptCloudKitShareWith: cloudKitShareMetadata)
         }
     }

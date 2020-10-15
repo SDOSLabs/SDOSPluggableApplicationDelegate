@@ -12,9 +12,9 @@ import SDOSPluggableApplicationDelegate
 @UIApplicationMain
 class AppDelegate: PluggableApplicationDelegate {
     
-    override var services: [ApplicationService] {
+    override var applicationServices: [ApplicationService] {
         return [
-            LoggerApplicationService()
+            LoggerApplicationService.shared
         ]
     }
 }
