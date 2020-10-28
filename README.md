@@ -8,7 +8,7 @@
   - [Example](#example)
   - [Requirements](#requirements)
   - [References](#references)
-
+ 
 # SDOSPluggableApplicationDelegate
 
 - Link confluence: https://kc.sdos.es/x/HATLAQ
