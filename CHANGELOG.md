@@ -1,3 +1,7 @@
+## [HEAD]
+
+- Add support for Swift Package Manager
+
 ## [2.0.1 Fix Xcode 11](https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate/tree/v2.0.1)
 
 - Fix compile error on Xcode 11 and 11.1

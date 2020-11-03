@@ -2,13 +2,16 @@
   - [Introduction](#introduction)
   - [Instalation](#instalation)
     - [Cocoapods](#cocoapods)
+    - [Swift Package Manager](#swift-package-manager)
+      - [**In the "Project"**](#in-the-project)
+      - [**In a Package.swift**](#in-a-packageswift)
   - [At a glance. AppDelegate](#at-a-glance-appdelegate)
   - [At a glance. SceneDelegate](#at-a-glance-scenedelegate)
   - [How does this work?](#how-does-this-work)
   - [Example](#example)
   - [Requirements](#requirements)
   - [References](#references)
-
+ 
 # SDOSPluggableApplicationDelegate
 
 - Link confluence: https://kc.sdos.es/x/HATLAQ
@@ -31,14 +34,51 @@ source 'https://github.com/SDOSLabs/cocoapods-specs.git'
 
 Add the dependency to `Podfile`:
 ```ruby
-pod 'SDOSPluggableApplicationDelegate', '~>2.0.1' 
+pod 'SDOSPluggableApplicationDelegate', '~>2.1.0' 
 ```
 
 If you want support the new `SceneDelegate` add the next dependency instead: 
 ```ruby
-pod 'SDOSPluggableApplicationDelegate/Scene', '~>2.0.1' 
+pod 'SDOSPluggableApplicationDelegate/Scene', '~>2.1.0' 
 ```
 Remember that you need support the Scenes into your app: https://developer.apple.com/documentation/uikit/app_and_environment/scenes/specifying_the_scenes_your_app_supports
+
+### Swift Package Manager
+
+In Xcode 12 we can include this library through Swift package Manager. There are 2 ways to add it to a project:
+
+#### **In the "Project"**
+
+We must open our project in Xcode and select the project itself to open its configuration. Once here select the "Swift Packages" tab and add the following repository:
+
+```
+https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate.git
+```
+
+In the next step we must select the version we want to install. We recommended indicating "Up to Next Major" `2.1.0`.
+
+Finally we must indicate the target(s) where the library should be included.
+
+#### **In a Package.swift**
+
+Include the dependency in the `dependencies` block:
+
+``` swift
+dependencies: [
+    .package(url: "https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate.git", .upToNextMajor(from: "2.1.0"))
+]
+```
+
+Include the library in the desired target(s):
+
+```js
+.target(
+    name: "YourDependency",
+    dependencies: [
+        "SDOSPluggableApplicationDelegate"
+    ]
+)
+```
 
 ## At a glance. AppDelegate
 Let see some code.
