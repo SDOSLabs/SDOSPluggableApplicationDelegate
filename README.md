@@ -27,7 +27,7 @@ Using `SDOSPluggableApplicationDelegate` you decouple `AppDelegate` and `SceneDl
 
 Use [CocoaPods](https://cocoapods.org). 
 
-Añadir el "source" privado de SDOSLabs al `Podfile`. Añadir también el source público de cocoapods para poder seguir instalando dependencias desde éste:
+Add SDOSLabs private "source" and cocoapods public "source" to `Podfile`:
 ```ruby
 source 'https://github.com/SDOSLabs/cocoapods-specs.git' #SDOSLabs source
 source 'https://github.com/CocoaPods/Specs.git' #Cocoapods source
