@@ -1,4 +1,4 @@
-@version = "2.0.1"
+@version = "2.1.0"
 Pod::Spec.new do |spec|
   spec.platform     = :ios, '9.0'
   spec.name         = 'SDOSPluggableApplicationDelegate'
