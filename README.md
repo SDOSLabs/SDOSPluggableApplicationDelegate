@@ -38,7 +38,7 @@ Add the dependency to `Podfile`:
 pod 'SDOSPluggableApplicationDelegate', '~>2.1.0' 
 ```
 
-If you want support the new `SceneDelegate` add the next dependency instead: 
+If you want support the `SceneDelegate` add the next dependency instead: 
 ```ruby
 pod 'SDOSPluggableApplicationDelegate/Scene', '~>2.1.0' 
 ```

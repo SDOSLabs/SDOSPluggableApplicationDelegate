@@ -1,4 +1,4 @@
-## [HEAD]
+## [2.1.0 Support Swift Package Manager](https://github.com/SDOSLabs/SDOSPluggableApplicationDelegate/tree/2.1.0)
 
 - Add support for Swift Package Manager
 

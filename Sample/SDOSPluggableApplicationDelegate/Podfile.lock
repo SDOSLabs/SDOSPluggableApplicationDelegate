@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  SDOSPluggableApplicationDelegate: 4cb96d7ddd600df443e1127e8e923ab3081d499f
+  SDOSPluggableApplicationDelegate: 4d86745fa91c82bd08d0112f410eb3bb828c36ec
 
 PODFILE CHECKSUM: 6d2cfee9e74fc16a0c1aca7d457a0e8da9d46a5e
 
