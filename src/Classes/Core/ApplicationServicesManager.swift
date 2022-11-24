@@ -12,6 +12,7 @@ import CloudKit
 public typealias ApplicationDelegate = UIApplicationDelegate
 public protocol ApplicationService: ApplicationDelegate {}
 
+@available(iOS 2.0, tvOS 13.2, *)
 open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
     
     public var window: UIWindow?
@@ -93,7 +94,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
             service.applicationWillResignActive?(application)
         }
     }
-    
+#if os(iOS)
     @available(iOS, introduced: 2.0, deprecated: 9.0, message: "Please use application:openURL:options:")
     open func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         var result = false
@@ -115,6 +116,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         }
         return result
     }
+#endif
     
     @available(iOS 9.0, *)
     open func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -148,7 +150,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         }
     }
     
-    
+#if os(iOS)
     @available(iOS 2.0, *)
     open func application(_ application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         for service in __applicationServices {
@@ -183,7 +185,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
             service.application?(application, didRegister: notificationSettings)
         }
     }
-    
+#endif
     
     @available(iOS 3.0, *)
     open func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -208,7 +210,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         }
     }
     
-    
+#if os(iOS)
     @available(iOS, introduced: 4.0, deprecated: 10.0, message: "Use UserNotifications Framework's -[UNUserNotificationCenterDelegate willPresentNotification:withCompletionHandler:] or -[UNUserNotificationCenterDelegate didReceiveNotificationResponse:withCompletionHandler:]")
     open func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         for service in __applicationServices {
@@ -269,7 +271,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
             completionHandler()
         })
     }
-    
+#endif
     
     /*! This delegate method offers an opportunity for applications with the "remote-notification" background mode to fetch appropriate new data in response to an incoming remote notification. You should call the fetchCompletionHandler as soon as you're finished performing that operation, so the system can accurately estimate its power and data cost.
      
@@ -296,7 +298,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
         })
     }
     
-    
+#if os(iOS)
     // Called when the user activates your application by selecting a shortcut on the home screen,
     // except when -application:willFinishLaunchingWithOptions: or -application:didFinishLaunchingWithOptions returns NO.
     @available(iOS 9.0, *)
@@ -309,7 +311,7 @@ open class PluggableApplicationDelegate: UIResponder, ApplicationDelegate {
             completionHandler(result)
         })
     }
-    
+#endif
     
     // Applications using an NSURLSession with a background configuration may be launched or resumed in the background in order to handle the
     // completion of tasks in that session, or to handle authentication. This method will be called with the identifier of the session needing
