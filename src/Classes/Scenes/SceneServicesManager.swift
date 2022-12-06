@@ -11,13 +11,13 @@ import CloudKit
 
 #if swift(>=5.1)
 
-@available(iOS 13.0, *)
+@available(iOS 13.0, tvOS 13.2, *)
 public typealias SceneDelegate = UIWindowSceneDelegate
 
-@available(iOS 13.0, *)
+@available(iOS 13.0, tvOS 13.2, *)
 public protocol SceneService: SceneDelegate {}
 
-@available(iOS 13.0, *)
+@available(iOS 13.0, tvOS 13.2, *)
 open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     
     public var window: UIWindow?
@@ -60,7 +60,7 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     open func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         __sceneServices.forEach { $0.scene?(scene, willConnectTo: session, options: connectionOptions) }
     }
-    
+#if os(iOS)
     @available(iOS 13.0, *)
     open func windowScene(_ windowScene: UIWindowScene, didUpdate previousCoordinateSpace: UICoordinateSpace, interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation, traitCollection previousTraitCollection: UITraitCollection) {
         __sceneServices.forEach { $0.windowScene?(windowScene, didUpdate: previousCoordinateSpace, interfaceOrientation: previousInterfaceOrientation, traitCollection: previousTraitCollection) }
@@ -77,7 +77,7 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
             completionHandler(result)
         })
     }
-
+#endif
     
     @available(iOS 13.0, *)
     open func windowScene(_ windowScene: UIWindowScene, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
@@ -148,12 +148,12 @@ open class PluggableSceneDelegate: UIResponder, SceneDelegate {
     
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13.0, tvOS 13.2, *)
 extension PluggableApplicationDelegate {
     
     //MARK: - SceneKit
     
-    @available(iOS 13.0, *)
+    @available(iOS 13.0, tvOS 13.2, *)
     open func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         
         for service in __applicationServices {
@@ -167,7 +167,7 @@ extension PluggableApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    @available(iOS 13.0, *)
+    @available(iOS 13.0, tvOS 13.2, *)
     open func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         __applicationServices.forEach { $0.application?(application, didDiscardSceneSessions: sceneSessions) }
     }

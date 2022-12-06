@@ -10,9 +10,10 @@ import UIKit
 import CloudKit
 
 #if swift(>=5.1.2)
+@available(tvOS 13.2, *)
 extension PluggableApplicationDelegate {
     
-    @available(iOS 13.2, *)
+    @available(iOS 13.2, tvOS 13.2, *)
     public func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
         var result = false
         for service in __applicationServices {
@@ -23,7 +24,7 @@ extension PluggableApplicationDelegate {
         return result
     }
     
-    @available(iOS 13.2, *)
+    @available(iOS 13.2, tvOS 13.2, *)
     public func application(_ application: UIApplication, shouldRestoreSecureApplicationState coder: NSCoder) -> Bool {
         var result = false
         for service in __applicationServices {
